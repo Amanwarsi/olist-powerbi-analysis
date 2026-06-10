@@ -42,7 +42,7 @@ Nine CSVs spanning orders, items, payments, reviews, products, sellers, customer
  
 ---
 
-## Key Findings
+## 💡 Key insights
  
 | Metric | Value |
 |---|---|
@@ -66,7 +66,7 @@ The delivery-vs-estimate distribution sits firmly in negative territory — Olis
 
 ---
 
-## What I Built :
+### What I Built :
 ## 🧱 Data model
  
 A **star schema** built around two fact tables at different grains (orders and order items), surrounded by dimensions and a dedicated date table.
@@ -88,12 +88,31 @@ A **star schema** built around two fact tables at different grains (orders and o
 - Star schema: Orders + Order Items at the center; Products, Customers, Sellers, Geolocation, and a dedicated marked Date table as dimensions
 - Used `customer_unique_id` (not `customer_id`) for retention analysis — Olist issues a new customer_id per order
 
-### 🧹 Power Query (ETL)
+## 🧹 ETL — Power Query
+
 - Cleaned and typed 9 raw CSVs; explicit datetime casting on all order timestamps
 - Derived `delivery_days`, `delivery_delta` (actual vs estimated), and `is_late` flag — with null-safe logic so cancelled/undelivered orders don't error
 - Merged the Portuguese→English category translation into Products; labeled missing categories as "unknown" instead of dropping rows (preserves revenue accuracy)
 - Built a grouped **Payments by Order** query (via Reference) to prevent double-counting orders paid across multiple payment rows
 - Deduplicated the geolocation table to one lat/lng per zip prefix to avoid relationship fan-out
+
+## 🧮 DAX measures
+ 
+~30 measures organised into folders. A few headline ones:
+ 
+```dax
+Total Revenue   = SUM ( 'Order Items'[price] )
+Avg Order Value = DIVIDE ( [Total Revenue], [Total Orders] )
+% Late Deliveries =
+    DIVIDE (
+        CALCULATE ( [Total Orders], Orders[is_late] = TRUE() ),
+        CALCULATE ( [Total Orders], NOT ISBLANK ( Orders[delivery_days] ) )
+    )
+Avg Review Score = AVERAGE ( Reviews[review_score] )
+Revenue YoY %    = DIVIDE ( [Total Revenue] - [Revenue LY], [Revenue LY] )
+```
+ 
+Full set in [`Olist_DAX_Measures.txt`](Olist_DAX_Measures.txt).
 
 
 
