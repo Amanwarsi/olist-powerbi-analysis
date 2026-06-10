@@ -15,3 +15,6 @@ End-to-end analysis of ~100,000 real orders from Olist, a Brazilian e-commerce m
 | Avg Order Value | $136.68 |
 | Avg Review Score | 4.09 / 5 |
 | Low (1–2★) Reviews | 14.68% |
+
+<img width="1916" height="976" alt="executive overview " src="https://github.com/user-attachments/assets/b2e53b5f-3820-476f-9a8a-41f66314a146" /> 
+[Executive Overview] 
