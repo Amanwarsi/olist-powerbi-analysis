@@ -114,5 +114,17 @@ Revenue YoY %    = DIVIDE ( [Total Revenue] - [Revenue LY], [Revenue LY] )
  
 Full set in [`Olist_DAX_Measures.txt`](Olist_DAX_Measures.txt).
 
+---
+
+## About
+ 
+Built by **[Aman Warsi]** — aspiring data analyst focused on marketing & e-commerce analytics.
+[www.linkedin.com/in/amanwarsi](#)
+
+--- 
+
+## 📜 License
+ 
+Project code/report: MIT. Dataset: CC BY-NC-SA 4.0 (Olist, via Kaggle).
 
 
