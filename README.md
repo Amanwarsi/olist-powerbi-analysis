@@ -97,20 +97,7 @@ A **star schema** built around two fact tables at different grains (orders and o
 - Deduplicated the geolocation table to one lat/lng per zip prefix to avoid relationship fan-out
 
 ## 🧮 DAX measures
- 
-~30 measures organised into folders. A few headline ones:
- 
-```dax
-Total Revenue   = SUM ( 'Order Items'[price] )
-Avg Order Value = DIVIDE ( [Total Revenue], [Total Orders] )
-% Late Deliveries =
-    DIVIDE (
-        CALCULATE ( [Total Orders], Orders[is_late] = TRUE() ),
-        CALCULATE ( [Total Orders], NOT ISBLANK ( Orders[delivery_days] ) )
-    )
-Avg Review Score = AVERAGE ( Reviews[review_score] )
-Revenue YoY %    = DIVIDE ( [Total Revenue] - [Revenue LY], [Revenue LY] )
-```
+ Dedicated measures table including Total Revenue, AOV, % Late Deliveries, Avg Review Score, % Low Reviews, Repeat Customers (via `customer_unique_id`), and Revenue YoY % (time intelligence over the Date table).
  
 Full set in [`Olist_DAX_Measures.txt`](Olist_DAX_Measures.txt).
 
