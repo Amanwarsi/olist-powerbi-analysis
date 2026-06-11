@@ -18,7 +18,7 @@ End-to-end analysis of ~100,000 real orders from Olist, a Brazilian e-commerce m
 | **Geography & Sellers** | Where are our customers and sellers? |
 
 <img width="1916" height="976" alt="executive overview " src="https://github.com/user-attachments/assets/e6fd6b7a-500d-4fd0-b2d3-b62f577450ad" />
-[Executive Overview] Full set in images folder.
+[Executive Overview]/ Full set in images folder.
 
 ---
 
