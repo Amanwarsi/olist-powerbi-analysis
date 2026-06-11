@@ -100,7 +100,7 @@ A **star schema** built around two fact tables at different grains (orders and o
  Dedicated measures table including Total Revenue, AOV, % Late Deliveries, Avg Review Score, % Low Reviews, Repeat Customers (via `customer_unique_id`), and Revenue YoY % (time intelligence over the Date table).
  
 Full set in [`Olist_DAX_Measures.txt`](Olist_DAX_Measures.txt).
-
+Olist_Dax_Measures.txt
 ---
 
 ## About
