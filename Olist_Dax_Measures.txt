@@ -1,14 +1,14 @@
-1) % Late Deliveries = DIVIDE(CALCULATE([Total Orders], Orders[is_late] = TRUE), [Total Orders])
+1) % Late Deliveries = DIVIDE(CALCULATE([Total Orders], Orders[is_late] = TRUE), [Total Orders])  //share of orders delivered after the                                                                                                            estimated date
 
-2) % Low Reviews = DIVIDE(CALCULATE(COUNTROWS(Reviews), Reviews[review_score] <= 2), COUNTROWS(Reviews))
+2) % Low Reviews = DIVIDE(CALCULATE(COUNTROWS(Reviews), Reviews[review_score] <= 2), COUNTROWS(Reviews))  //share of reviews scoring 1–2 stars
 
-3) Avg Delivery Days = AVERAGE(Orders[delivery_days])
+3) Avg Delivery Days = AVERAGE(Orders[delivery_days])  //average days from purchase to delivery
 
-4) Avg freight per_order = DIVIDE([Total Freight], [Total Orders])
+4) Avg freight per_order = DIVIDE([Total Freight], [Total Orders])  //total freight ÷ orders; average shipping cost per order
 
-5) Avg Order Value = DIVIDE([Total Revenue], [Total Orders])
+5) Avg Order Value = DIVIDE([Total Revenue], [Total Orders])  //revenue ÷ orders; average spend per order
 
-6) Avg Review Score = AVERAGE(Reviews[review_score])
+6) Avg Review Score = AVERAGE(Reviews[review_score])  //average star rating across reviews
 
 7) Repeat Customers = 
 COUNTROWS(
@@ -16,15 +16,15 @@ COUNTROWS(
         VALUES(Customers[customer_unique_id]),
         CALCULATE(DISTINCTCOUNT(Orders[order_id])) > 1
     )
-)
+)    //counts customers who ordered more than once
 
 8) Revenue YoY % = 
    VAR CurrentRev = [Total Revenue]
    VAR PriorRev = CALCULATE([Total Revenue], DATEADD('Date'[Date], -1, YEAR))
-   RETURN DIVIDE(CurrentRev - PriorRev, PriorRev)
+   RETURN DIVIDE(CurrentRev - PriorRev, PriorRev)  //revenue growth vs the same period last year
 
-9) Total Freight = SUM('Order Items'[freight_value])
+9) Total Freight = SUM('Order Items'[freight_value])  //adds up all shipping charges
 
-10) Total Orders = DISTINCTCOUNT(Orders[order_id])
+10) Total Orders = DISTINCTCOUNT(Orders[order_id])  //counts unique orders
 
-11) Total Revenue = SUM('Order Items'[price])
+11) Total Revenue = SUM('Order Items'[price])  //adds up all item prices
