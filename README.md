@@ -106,7 +106,7 @@ Full set in [`Olist_Dax_Measures.txt`](Olist_Dax_Measures.txt).
 ## About
  
 Built by **[Aman Warsi]** — aspiring data analyst focused on marketing & e-commerce analytics.
-[www.linkedin.com/in/amanwarsi](#)
+🔗 [My LinkedIn Profile](https://www.linkedin.com/in/amanwarsi)
 
 --- 
 
